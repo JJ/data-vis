@@ -19,8 +19,9 @@ library(ggplot2)
 library(reshape2)
 publicaciones.UGR <- investigacion.UGR[investigacion.UGR$Tipo.de.Estadística=="Publicaciones ISI",]
 publicaciones.UGR.year <- melt(publicaciones.UGR,id.vars=1:2,variable.name="year")
+publicaciones.UGR.year$value <- as.integer(publicaciones.UGR.year$value)
 pubs.WOS <- publicaciones.UGR.year[publicaciones.UGR.year$Denominación == "No. pub. WoS (Thomson)",]
-pubs.WOS$value <- as.integer(pubs.WOS$value)
-qplot(data=pubs.WOS,x=year,y=value)
+pubs.WOS.citables <- publicaciones.UGR.year[publicaciones.UGR.year$Denominación == "No. pub. Citables  WoS (Thomson)",]
+ggplot()+geom_point(data=pubs.WOS,aes(x=year,y=value,color='Todas'))+geom_point(data=pubs.WOS.citables,aes(x=year,y=value,color='Citables'))
 ```
 

@@ -210,6 +210,53 @@ qplot(data=pubs.WOS,x=year,y=value)
 	    <h1>Ejercicio</h1> 
 	    <p>Completar el informe anterior incluyendo los datos, su tratamiento y presentación en HTML y PDF. Trazar, por ejemplo, el <em>número de trabajos con factor de impacto mayor que 10</em> </p>
 	  </section>
+	</section>
+
+	<section>
+	  <section><h1><code>ggplot</code></h1>
+
+	    <pre><code>ggplot() + geom_point(data=pubs.WOS, aes(x=year, y=value))</code></pre>
+	  </section>
+
+	  <section><h1><code>+</code> combina gráficos</h1></section>
+
+	  <section><pre><code>ggplot()
+    +geom_point(data=pubs.WOS,
+       aes(x=year,y=value,color='Todas'))
+    +geom_point(data=pubs.WOS.citables,
+       aes(x=year,y=value,color='Citables'))</code></pre>
+	  </section>
+
+	  <section>
+	    <img src='img/ggplot.png' alt='Con ggplot'>
+	  </section>
+
+	  <section>
+	    <h1>Ejercicio</h1> 
+	    <p>Igual que en el caso anterior, continuar el informe RMarkdown combinando diferentes gráficos usando <code>ggplot</code> </p>
+	  </section>
+
+	  <section>
+	    <h2>Cambiando colores, ejes, títulos... </h2>
+	    <code><a href='http://docs.ggplot2.org/current/'>docs.ggplot2.org/current/</a></code>
+	  </section>
+
+	   <section>
+	    <h1>Ejercicio</h1> 
+	    <p>Combinar diferentes elementos gráficos hasta dar con un gráfico satisfactorio: títulos, leyendas... Incluirlo en el informe escrito en RMarkdown</p>
+	  </section>
+
+
+	</section>
+	
+	<section>
+	  <h1>Publicando en RPubs</h1>
+	</section>
+	
+	<section>
+	  <h1><code>knitr</code>: LaTeX + R</h1>
+	</section>
+	
       </div>
 	      
       
