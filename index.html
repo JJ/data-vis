@@ -80,6 +80,36 @@ qplot(elecciones$Sector, elecciones$Votos,
 	    <p><strong>Ejercicio</strong>: 
 	      Reproducir estos resultados con  eje x el candidato y el sector con el color.</p>
 	  </section>
+
+	  <section>
+	    <pre><code>qplot(data=elecciones, x=Sector, y=Votos,
+    geom="bar",stat="identity", fill=Candidato)
+ggsave("qplot-bar.png")</code></pre>
+	    <img src='R/qplot-bar.png' alt='info en barras'>
+	  </section>
+
+	  <section>
+	    <h1>Ejercicio</h1> 
+	      <p>Reproducir los resultados anteriores usando como eje x el candidato y el sector para el relleno.</p>
+	  </section>
+
+	  <section>
+	    <pre><code>qplot(data=elecciones, x=Sector, y=Votos,
+    geom="bar",stat="identity", fill=Candidato, 
+    facets=Candidato~Sector)</code></pre>
+	    <img src='R/qplot-bar-facets.png' alt='info en facetas'>
+	  </section>
+
+	  <section>
+	    <h1>Ejercicio</h1> 
+	      <p>Reproducir los resultados anteriores usando como eje x el candidato y el sector para el relleno.</p>
+	  </section>
+
+	  <section>
+	    <h1>Ejercicio</h1> 
+	    <p>Usar los <a href='http://sl.ugr.es/bdw_2'>datos de matrículas de la UGR <code>sl.ugr.es/bdw_2</code> para realizar la representación más adecuada según la naturaleza de los mismos. </p>
+	  </section>
+
 	</section>
 
 
