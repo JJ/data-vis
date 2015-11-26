@@ -149,8 +149,8 @@ Causas probables:
 	  <section><h1>Resultados de investigación</h1>
 	    <div id="introduccion" class="section level2">
   <h2>Introducción</h2>
-<p>Datos extraidos de <a href="R/datos.csv">este fichero</a>, correspondientes al <strong>año 2014</strong></p>
-<p>Importante:</p>
+  <p>Datos extraidos de <a href="data/datos.csv">este fichero</a>, correspondientes al <strong>año 2014</strong></p>
+  <p>Importante:</p>
 <ol style="list-style-type: decimal">
   <li>Publicaciones aumentan</li>
 <li>Se publica en las revistas más importantes</li>
@@ -159,7 +159,7 @@ Causas probables:
 <p>Causas probables:</p>
 <ul>
   <li>Trabajamos demasiado.</li>
-<li>Publica o perece</li>
+  <li>Publica o perece</li>
 </ul></div></section>
 
 	   <section>
@@ -168,7 +168,28 @@ Causas probables:
 	  </section>
 	  
 	</section>
-	  
+
+	<section>
+	  <section>
+	    <h2>Ahora todo junto</h2>
+	    <h1 class='fragment'>R Markdown, código y texto</h1>
+	  </section>
+
+	  <section>
+	    <pre><code>---
+title: "datos-investigacion"
+author: "JJ Merelo"
+date: "26/11/2015"
+output: html_document
+---
+#Resultados de investigación
+
+```{r}
+investigacion.UGR <- read.csv('../data/estadisticasbasicastodas.csv')
+```</code></pre>
+	  <img src='img/rmarkdown.png' data='resultado rmarkdown'>
+	</section>
+
       </div>
 	      
       

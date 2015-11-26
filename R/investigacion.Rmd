@@ -6,18 +6,10 @@ output: html_document
 ---
 #Resultados de investigación
 
+```{r}
+investigacion.UGR <- read.csv('../data/estadisticasbasicastodas.csv')
+```
 ## Introducción
 
-Datos extraidos de [este fichero](R/datos.csv), 
-correspondientes al **año 2014**
+UGR es una de las principales universidades de Andalucía en investigación. Los datos extraídos del [portal de datos abiertos](http://opendata.ugr.es) nos indican su evolución en los últimos años.
 
-Importante:
-
-1. Publicaciones aumentan
-2. Se publica en las revistas más importantes
-2. Somos guay.
-
-Causas probables:
-
-- Trabajamos demasiado.
-- Publica o perece
