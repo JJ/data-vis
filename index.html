@@ -61,8 +61,29 @@
 	  <section><h2><pre><code>&gt; install.packages("ggplot2")</code></pre></h2></section>
 
 	  <section><h1>Datos: Elecciones UGR</h1>
-	    <code><a href=http://opendata.ugr.es/dataset/resultados-elecciones'>Datos elecciones UGR</a></code>
+	    <code><a href='http://opendata.ugr.es/dataset/resultados-elecciones'><code>sl.ugr.es/bdw_1</code></a></code>
 	  </section>
+
+	  <section>
+	    <h3><a href='R/qplot.R'><code>R/qplot.R</code></a></h3>
+	    <pre><code>library(ggplot2)
+elecciones <- read.csv('../data/resultadoselecciones2015.csv')
+qplot(elecciones$Sector, elecciones$Votos,
+    color=elecciones$Candidato)
+qplot(elecciones$Sector, elecciones$Votos,
+    color=elecciones$Candidato,size=elecciones$Votos)</code></pre>
+
+	  </section>
+
+	  <section>
+	    <img src='R/qplot.png' title='Resultado qplot'>
+	    <h3>Ejercicio</h3>
+	    Reproducir estos resultados representando en eje x el candidato y el sector con el color.
+	  </section>
+	</section>
+
+
+	  
       </div>
 	      
       
