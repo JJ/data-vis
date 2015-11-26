@@ -1,0 +1,23 @@
+---
+title: "datos-investigacion"
+author: "JJ Merelo"
+date: "26/11/2015"
+output: html_document
+---
+#Resultados de investigación
+
+## Introducción
+
+Datos extraidos de [este fichero](R/datos.csv), 
+correspondientes al **año 2014**
+
+Importante:
+
+1. Publicaciones aumentan
+2. Se publica en las revistas más importantes
+2. Somos guay.
+
+Causas probables:
+
+- Trabajamos demasiado.
+- Publica o perece
