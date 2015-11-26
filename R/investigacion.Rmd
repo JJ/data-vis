@@ -6,10 +6,21 @@ output: html_document
 ---
 #Resultados de investigación
 
-```{r}
+```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
 investigacion.UGR <- read.csv('../data/estadisticasbasicastodas.csv')
 ```
 ## Introducción
 
-UGR es una de las principales universidades de Andalucía en investigación. Los datos extraídos del [portal de datos abiertos](http://opendata.ugr.es) nos indican su evolución en los últimos años.
+UGR es una de las principales universidades de Andalucía en investigación. Los datos extraídos del [portal de datos abiertos](http://opendata.ugr.es) nos indican su evolución en los últimos años. Como resultado básico de esta investigación, tenemos los trabajos publicados.
+
+## Publicaciones
+```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
+library(ggplot2)
+library(reshape2)
+publicaciones.UGR <- investigacion.UGR[investigacion.UGR$Tipo.de.Estadística=="Publicaciones ISI",]
+publicaciones.UGR.year <- melt(publicaciones.UGR,id.vars=1:2,variable.name="year")
+pubs.WOS <- publicaciones.UGR.year[publicaciones.UGR.year$Denominación == "No. pub. WoS (Thomson)",]
+pubs.WOS$value <- as.integer(pubs.WOS$value)
+qplot(data=pubs.WOS,x=year,y=value)
+```
 

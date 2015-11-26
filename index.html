@@ -190,6 +190,21 @@ investigacion.UGR <- read.csv('../data/estadisticasbasicastodas.csv')
 	  <img src='img/rmarkdown.png' data='resultado rmarkdown'>
 	</section>
 
+	<section><pre><code>## Publicaciones
+```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
+library(ggplot2)
+library(reshape2)
+publicaciones.UGR 
+    <- investigacion.UGR[investigacion.UGR$Tipo.de.Estadística=="Publicaciones ISI",]
+publicaciones.UGR.year 
+    <- melt(publicaciones.UGR,id.vars=1:2,variable.name="year")
+pubs.WOS 
+    <- publicaciones.UGR.year[publicaciones.UGR.year$Denominación 
+        == "No. pub. WoS (Thomson)",]
+pubs.WOS$value <- as.integer(pubs.WOS$value)
+qplot(data=pubs.WOS,x=year,y=value)
+```</code></pre></section>
+	<section><img src='img/rmarkdown-2.png' alt='con gráfico'></section>
       </div>
 	      
       
