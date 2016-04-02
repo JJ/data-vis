@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Visualizando datos</title>
+    
+    <meta name="description" content="Visualizando datos con R">
+    <meta name="author" content="JJ Merelo">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/extra.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+    
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  
+  <body>
+    
+    <div class="reveal">
+
+		  <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <section>
+	    <h1>Tufte: <a href='http://thedoublethink.com/2009/08/tufte%E2%80%99s-principles-for-visualizing-quantitative-information/'>principios para visualización de datos</a></h1>
+
+	    <aside class='notes'>Propuesto a principios de los 80. Y todavía están vigentes y cada vez
+	    se toman más en
+	      serio. En <a href='http://www2.cs.uregina.ca/~rbm/cs100/notes/spreadsheets/tufte_paper.html'>este
+	    artículo</a> muestran también una serie de principios,
+	    más extensivamente.</aside>
+	  </section>
+
+	  <section>
+	    <h1>Integridad</h1>
+	  </section>
+
+	  <section>
+	    <h1>Tasa datos/tinta alta</h1>
+	  </section>
+
+	  <section>
+	    <h1>Eliminación de <em>chartjunk</em>
+	    </h1>
+	  </section>
+
+	  <section><h1>Alta densidad de datos.</h1></section>
+
+	</section> <!-- termina intro -->
+
+	<section>
+	  <h1>Lo que veremos</h1>
+	  <ol>
+	    <li>Una gramática para gráficos: <code>ggplot2</code></li>
+	    <li>Creando informes automáticamente</li>
+	    <li>Usando herramientas online de visualización</li>
+	  </ol>
+	</section>
+
+	<section>
+	  <section>
+	    <h1><code>ggplot2</code></h1>
+	    
+	    <h2>Una <em>gramática para gráficos</em> que facilita las presentaciones.</h2>
+	  </section>
+
+	  <section><h2><pre><code>&gt; install.packages("ggplot2")</code></pre></h2></section>
+
+	  <section><h1>Datos: Elecciones UGR</h1>
+	    <code><a href='http://opendata.ugr.es/dataset/resultados-elecciones'><code>sl.ugr.es/bdw_1</code></a></code>
+	  </section>
+
+	  <section>
+	    <h3><a href='R/qplot.R'><code>R/qplot.R</code></a></h3>
+	    <pre><code>library(ggplot2)
+elecciones <- read.csv('../data/resultadoselecciones2015.csv')
+qplot(elecciones$Sector, elecciones$Votos,
+    color=elecciones$Candidato)
+qplot(elecciones$Sector, elecciones$Votos,
+    color=elecciones$Candidato,size=elecciones$Votos)</code></pre>
+
+	  </section>
+
+	  <section>
+	    <pre><code>qplot(data=elecciones, x=Sector, y=Votos,
+    geom="bar",stat="identity", fill=Candidato)
+ggsave("qplot-bar.png")</code></pre>
+	    <img src='R/qplot-bar.png' alt='info en barras'>
+	  </section>
+
+	  <section>
+	    <pre><code>qplot(data=elecciones, x=Sector, y=Votos,
+    geom="bar",stat="identity", fill=Candidato, 
+    facets=Candidato~Sector)</code></pre>
+	    <img src='R/qplot-bar-facets.png' alt='info en facetas'>
+	  </section>
+
+	</section>
+
+
+	<section><pre><code>## Publicaciones
+```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
+library(ggplot2)
+library(reshape2)
+publicaciones.UGR 
+    <- investigacion.UGR[investigacion.UGR$Tipo.de.Estadística=="Publicaciones ISI",]
+publicaciones.UGR.year 
+    <- melt(publicaciones.UGR,id.vars=1:2,variable.name="year")
+pubs.WOS 
+    <- publicaciones.UGR.year[publicaciones.UGR.year$Denominación 
+        == "No. pub. WoS (Thomson)",]
+pubs.WOS$value <- as.integer(pubs.WOS$value)
+qplot(data=pubs.WOS,x=year,y=value)
+```</code></pre></section>
+	<section><img src='img/rmarkdown-2.png' alt='con gráfico'></section>
+
+	<section>
+	  <section><h1><code>ggplot</code></h1>
+
+	    <pre><code>ggplot() + geom_point(data=pubs.WOS, aes(x=year, y=value))</code></pre>
+	  </section>
+
+	  <section><h1><code>+</code> combina gráficos</h1></section>
+
+	  <section><pre><code>ggplot()
+    +geom_point(data=pubs.WOS,
+       aes(x=year,y=value,color='Todas'))
+    +geom_point(data=pubs.WOS.citables,
+       aes(x=year,y=value,color='Citables'))</code></pre>
+	  </section>
+
+	  <section>
+	    <img src='img/ggplot.png' alt='Con ggplot'>
+	  </section>
+
+	  <section>
+	    <h2>Cambiando colores, ejes, títulos... </h2>
+	    <code><a href='http://docs.ggplot2.org/current/'>docs.ggplot2.org/current/</a></code>
+	  </section>
+
+	   <section>
+	     <h1><code>ggthemes</code>: Tufte (y más) para <code>ggplot</code></h1>
+	   </section>
+
+	</section>
+	
+      </div>
+	      
+      
+      </div>
+      
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
