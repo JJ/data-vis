@@ -136,7 +136,7 @@ qplot(data=pubs.WOS,x=year,y=value)
 	<section><img src='img/rmarkdown-2.png' alt='con gráfico'></section>
 
 	<section>
-	  <section><h1><code>ggplot</code></h1>
+	  <section><h1><code>ggplot()</code></h1>
 
 	    <pre><code>ggplot() + geom_point(data=pubs.WOS, aes(x=year, y=value))</code></pre>
 	  </section>
@@ -160,7 +160,7 @@ qplot(data=pubs.WOS,x=year,y=value)
 	  </section>
 
 	   <section>
-	     <h1><code>ggthemes</code>: Tufte (y más) para <code>ggplot</code></h1>
+	     <h1><code>ggthemes</code>: Tufte (y más) para <code>ggplot2</code></h1>
 	   </section>
 
 	</section>
@@ -177,13 +177,15 @@ qplot(data=pubs.WOS,x=year,y=value)
 
 		<script>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+		  // Full list of configuration options available at:
+		  // https://github.com/hakimel/reveal.js#configuration
+		  Reveal.initialize({
+		  controls: true,
+		  progress: true,
+		  history: true,
+		  center: true,
+		  width: 1200,
+		  height: 800,
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
