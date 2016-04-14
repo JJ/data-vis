@@ -76,7 +76,6 @@
 	</section>
 
 	<section>
-
 	  
 	    <section><h1>Visualizando datos con principios</h1></section>
 	    
@@ -92,6 +91,7 @@
 	    
 	    <section>
 	      <h1>Integridad</h1>
+	      <aside class='notes'>La <a href='http://www.albertsuckow.com/tuftes-principles-graphical-integrity/'>integridad</a> es más un principio rector para el resto de las máximas de las que habla Tufte y se refiere a que se deben representar los datos de forma íntegra, pero también a que los datos y su relación deben estar en la misma proporción que en la realidad.</aside>
 	    </section>
 	    
 	    <section>
@@ -107,7 +107,7 @@
 	    </section>
 	    
 	    <section><h1>Alta densidad de datos.</h1>
-	      <aside class='notes'>
+	      <aside class='notes'>Este principio resume los dos anteriores, más el hecho de que, por encima de cualquier otra consideración, <a href='http://ux.stackexchange.com/questions/25969/tuftes-data-density-readability-and-comparison'>hay que mostrar los datos</a>. </aside>
 	    </section>
 
 	</section> <!-- termina intro -->
@@ -134,10 +134,23 @@ qplot(elecciones$Sector, elecciones$Votos,
 qplot(elecciones$Sector, elecciones$Votos,
     color=elecciones$Candidato,size=elecciones$Votos)</code></pre>
 
+	      <aside class='notes'>q, como <em>quick</em>, plot, es la
+	      forma más rápida de usar ggplot2 de la forma más
+		parecida y compatible con el <code>plot</code> por
+		omisión en R. En este script leemos los resultados de
+	      las elecciones de la UGR del año pasado y lo
+	      presentamos con color y además usando el tamaño, para
+		transmitir la información de dos formas diferentes.</aside>
 	  </section>
 
 	  <section>
 	    <img src='R/qplot.png' title='Resultado qplot'>
+	    <aside class='notes'>No cumple demasiado los principios de
+	    Tufte, ese es uno de los problemas de este gráfico, pero
+	      al menos se puede usar para obtener algo rápidamente.</aside>
+	  </section>
+
+	  <section>
 	    <p><strong>Ejercicio</strong>: 
 	      Reproducir estos resultados con  eje x el candidato y el sector con el color.</p>
 	  </section>
