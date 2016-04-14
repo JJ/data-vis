@@ -159,10 +159,22 @@ qplot(elecciones$Sector, elecciones$Votos,
 	      Reproducir estos resultados con  eje x el candidato y el sector con el color.</p>
 	  </section>
 
+	  	  <section>
+	    <pre><code>qplot(data=elecciones, x=Sector, y=Votos, shape=Candidato, facets=Candidato~Sector)
+	    </code></pre>
+	    <img src='R/qplot-bar-facets.png' alt='info en facetas'>
+	  </section>
+
 	  <section>
-	    <pre><code>qplot(data=elecciones, x=Sector, y=Votos,
-    geom="bar",stat="identity", fill=Candidato)
-ggsave("qplot-bar.png")</code></pre>
+	    <h1>Ejercicio</h1> 
+	      <p>Reproducir los resultados anteriores usando como eje x el candidato y el sector para la forma.</p>
+	  </section>
+
+	  <section>
+	    <h1>Las barras necesitan <code>ggplot</code></h1>
+	    <pre><code>ggplot(data=elecciones, aes(x=Sector, y=Votos, fill=Candidato))+geom_bar(stat="identity")</code></pre>
+	  </section>
+	  <section>
 	    <img src='R/qplot-bar.png' alt='info en barras'>
 	  </section>
 
@@ -171,17 +183,6 @@ ggsave("qplot-bar.png")</code></pre>
 	      <p>Reproducir los resultados anteriores usando como eje x el candidato y el sector para el relleno.</p>
 	  </section>
 
-	  <section>
-	    <pre><code>qplot(data=elecciones, x=Sector, y=Votos,
-    geom="bar",stat="identity", fill=Candidato, 
-    facets=Candidato~Sector)</code></pre>
-	    <img src='R/qplot-bar-facets.png' alt='info en facetas'>
-	  </section>
-
-	  <section>
-	    <h1>Ejercicio</h1> 
-	      <p>Reproducir los resultados anteriores usando como eje x el candidato y el sector para el relleno.</p>
-	  </section>
 
 	  <section>
 	    <h1>Ejercicio</h1> 
