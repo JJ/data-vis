@@ -186,9 +186,10 @@ qplot(data=pubs.WOS,x=year,y=value)
 
 	  <section><pre><code>votos.claustro <- read.csv("../data/claustro.csv")
 votos.plot <- ggplot()
-    +geom_bar(data=votos.claustro,aes(x=reorder(Nombre,-Votos),y=Votos,fill=Votos),stat='identity')
-    +theme_tufte()
-	      +theme(axis.text.x = element_text(angle = 90, hjust = 1)) </pre> </code>
+	      +geom_bar(data=votos.claustro,
+	                aes(x=reorder(Nombre,-Votos),y=Votos,fill=Votos),stat='identity')
+	      +theme_tufte()
+	      +theme(axi s.text.x = element_text(angle = 90, hjust = 1)) </pre> </code>
 
 	      <pre><code class='fragment'>plot_ly(votos.plot)</code></pre>
 	  </section>
