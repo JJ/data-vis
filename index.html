@@ -335,6 +335,10 @@ qplot(data=pubs.WOS,x=year,y=value)
 	  </section>
 
 	  <section>
+	  <img src='R/claustro.png' alt='claustro'>
+	  </section>
+
+	  <section>
 	    <h1>Ejercicio</h1> 
 	    <p>Combinar diferentes elementos gráficos hasta dar con un gráfico satisfactorio: títulos, leyendas... Incluirlo en el informe escrito en RMarkdown</p>
 	  </section>
@@ -345,6 +349,13 @@ qplot(data=pubs.WOS,x=year,y=value)
 	     <h1><code>ggthemes</code>: Tufte (y más) para <code>ggplot</code></h1>
 	   </section>
 
+	   <section><pre><code>votos.plot <- ggplot() 
+    +geom_bar(data=votos.claustro,aes(x=reorder(Nombre,-Votos),y=Votos,fill=Votos),stat='identity')
+
+votos.plot+theme_tufte()
+    +theme(axis.text.x = element_text(angle = 90, hjust = 1))+labs("Votos a claustro ETSIIT",x="Candidatos")</code></pre></section>
+
+	   <section><img src='R/tufte-claustro.png' alt='Datos claustro ETSIIT con Tufte'></section>
 	   
 	    <section>
 	    <h1>Ejercicio</h1> 
