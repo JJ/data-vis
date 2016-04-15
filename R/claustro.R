@@ -8,4 +8,6 @@ votos.plot <- ggplot() +geom_bar(data=votos.claustro,aes(x=reorder(Nombre,-Votos
 
 votos.plot+theme(axis.text.x = element_text(angle = 90, hjust = 1))+labs("Votos a claustro ETSIIT",x="Candidatos")
 
-votos.plot+theme_tufte()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+labs("Votos a claustro ETSIIT",x="Candidatos")
+tufting <- votos.plot+theme_tufte()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+labs("Votos a claustro ETSIIT",x="Candidatos")
+
+tufting + scale_fill_gradient2()
