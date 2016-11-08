@@ -325,11 +325,11 @@ qplot(data=pubs.WOS,x=year,y=value)
 
 	  <section>
 	    <h2><code><a href='R/claustro.R'>Elecciones a claustro</a></code></h2>
-	    <code><pre>votos.plot <- ggplot() 
+	    <pre><code>votos.plot <- ggplot() 
     +geom_bar(data=votos.claustro,aes(x=reorder(Nombre,-Votos)
               ,y=Votos,fill=Votos),stat='identity')
     +theme(axis.text.x = element_text(angle = 90, hjust = 1))
-    +labs("Votos a claustro ETSIIT",x="Candidatos")</pre></code>
+    +labs("Votos a claustro ETSIIT",x="Candidatos")</code></pre>
 
 	    <aside class='notes'>Recordad que los retornos de línea no le gustan a R, copiad mejor el script que se enlaza. Además, lo estamos asignando a una variable para usarlo más adelante. </aside>
 	  </section>
@@ -368,6 +368,9 @@ votos.plot+theme_tufte()
 	    tema Tufte.</p>
 	  </section>
 	</section>
+
+	<section>
+	  <h1><code><a href='http://sl.ugr.es/bde_2'>sl.ugr.es/bde_2</a></code></h1>
 
 	<section>
 	  <section><h1>Usando Plotly para generar gráficos JS</h1>
