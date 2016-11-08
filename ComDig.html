@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Visualizando datos</title>
+    
+    <meta name="description" content="Compromiso digital: Acercamiento y experiencias en periodismo de datos">
+    <meta name="author" content="JJ Merelo">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/extra.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- plotly -->
+
+    <script src="lib/htmlwidgets-0.6/htmlwidgets.js"></script>
+    <script src="lib/plotlyjs-1.6.1/plotly-latest.min.js"></script>
+    <script src="lib/plotly-binding-3.4.3/plotly.js"></script>
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+  </head>
+  
+  <body>
+    
+    <div class="reveal">
+
+		  <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	<section>
+	  
+	  <section>
+	    <h1>Acercamientos y experiencias en Periodismo de Datos</h1>
+	    <h2> Docencia y práctica profesional</h2>
+	  </section>
+
+	  <section>
+	    <h1>En el principio, fue la visualización</h1>
+	    <aside class='notes'>Un análisis de datos empieza por la visualización de los mismos, porque el sistema visual humano es capaz de encontrar relaciones entre ellos e incluso sacar conclusiones. A partir de la visualización se puede empezar a pensar en aplicar otras técnicas de preprocesamiento, estadísticas y de reconocimiento de patrones</aside>
+	  </section>
+	</section>
+
+	<section>
+	  
+	  <section><h1>Visualizando datos con principios</h1></section>
+	  
+	    <section>
+	      <h1>Tufte: <a href='http://thedoublethink.com/2009/08/tufte%E2%80%99s-principles-for-visualizing-quantitative-information/'>principios para visualización de datos</a></h1>
+	      
+	      <aside class='notes'>Propuesto a principios de los 80. Y todavía están vigentes y cada vez
+		se toman más en
+		serio. En <a href='http://www2.cs.uregina.ca/~rbm/cs100/notes/spreadsheets/tufte_paper.html'>este
+		  artículo</a> muestran también una serie de principios,
+		más extensivamente. Este <a href='https://porganized.com/2012/10/02/the-visual-display-of-quantitative-information/'>artículo</a> muestra algunos ejemplos.</aside>
+	    </section>
+	    
+	    <section>
+	      <h1>Integridad</h1>
+	      <aside class='notes'>La <a href='http://www.albertsuckow.com/tuftes-principles-graphical-integrity/'>integridad</a> es más un principio rector para el resto de las máximas de las que habla Tufte y se refiere a que se deben representar los datos de forma íntegra, pero también a que los datos y su relación deben estar en la misma proporción que en la realidad.</aside>
+	    </section>
+	    
+	    <section>
+	      <h1>Tasa datos/tinta alta</h1>
+	      <aside class='notes'>El <a href='http://www.infovis-wiki.net/index.php/Data-Ink_Ratio'>Data-Ink ratio</a> se refiere a la relación entre la "tinta" o "non-background pixels" totales y el resto de lo que hay en el gráfico: etiquetas, ejes, ese tipo de cosas. Maximizarla implica eliminar todo lo que es superfluo, dejando sólo la información que se quiere transmitir.</aside>
+	    </section>
+	    
+	    <section>
+	      <h1>Eliminación de <em>chartjunk</em>
+	      </h1>
+
+	      <aside class='notes'>Está en relación con la anterior: <a href='http://www.infovis-wiki.net/index.php?title=Chart_Junk'>charjunk es todo aquello que no codifica la información en el gráfico</a>: sombreados, ticks de los ejes, flechas... Eliminarlo contribuye a la tasa alta que se pide en el anterior.</aside>
+	    </section>
+	    
+	    <section><h1>Alta densidad de datos.</h1>
+	      <aside class='notes'>Este principio resume los dos anteriores, más el hecho de que, por encima de cualquier otra consideración, <a href='http://ux.stackexchange.com/questions/25969/tuftes-data-density-readability-and-comparison'>hay que mostrar los datos</a>. </aside>
+	    </section>
+
+	</section> <!-- termina intro -->
+	    
+
+      </div>
+	      
+      
+      </div>
+      
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			width: 1200,
+			height: 800,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
