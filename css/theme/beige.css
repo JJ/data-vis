@@ -72,7 +72,9 @@ body {
 }
 
 .reveal h2 {
-  font-size: 3em; }
+    font-size: 3em;
+    font-family: Tienne, Arial, sans-serif;
+}
 
 .reveal h3 {
   font-size: 1.55em; }
