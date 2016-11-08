@@ -55,7 +55,7 @@ body {
 
 .reveal h1 {
              font-family: "Pompiere";
-             font-size: 6em; 
+             font-size: 8em; 
              }
 
 .reveal h1::first-letter {
@@ -72,7 +72,7 @@ body {
 }
 
 .reveal h2 {
-  font-size: 2.11em; }
+  font-size: 3em; }
 
 .reveal h3 {
   font-size: 1.55em; }
