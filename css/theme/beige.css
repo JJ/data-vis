@@ -1,4 +1,4 @@
-/**
+8/**
  * Beige theme for reveal.js.
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
@@ -54,9 +54,9 @@ body {
 
 
 .reveal h1 {
-             font-family: "Pompiere";
-             font-size: 8em; 
-             }
+    font-family: "Pompiere";
+    font-size: 5em; 
+}
 
 .reveal h1::first-letter {
     background-color: #f4dc5f;
