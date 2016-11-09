@@ -18,7 +18,7 @@ body {
   background-color: #f7f3de; }
 
 .reveal {
-  font-family: "Tienne", sans-serif;
+  font-family: "Pompiere", sans-serif;
   font-size: 36px;
   font-weight: normal;
   color: #333; }
@@ -51,10 +51,8 @@ body {
   text-shadow: none;
   word-wrap: break-word; }
 
-
-
 .reveal h1 {
-    font-family: "Pompiere";
+    font-family: "Tienne";
     font-size: 5em; 
 }
 
